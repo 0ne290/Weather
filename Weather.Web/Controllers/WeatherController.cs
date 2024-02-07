@@ -4,16 +4,24 @@ using Weather.Web.Models;
 
 namespace Weather.Web.Controllers;
 
-public class HomeController : Controller
+[Route("")]
+[Route("weather")]
+public class WeatherController : Controller
 {
-    private readonly ILogger<HomeController> _logger;
-
-    public HomeController(ILogger<HomeController> logger)
+    public WeatherController(ILogger<WeatherController> logger)
     {
         _logger = logger;
     }
 
-    public IActionResult Index()
+    [Route("")]
+    [Route("general")]
+    public IActionResult General(double latitude = 91, double longitude = 181)
+    {
+        return View();
+    }
+    
+    [Route("detail")]
+    public IActionResult Detail()
     {
         return View();
     }
@@ -28,4 +36,6 @@ public class HomeController : Controller
     {
         return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
     }
+    
+    private readonly ILogger<WeatherController> _logger;
 }
