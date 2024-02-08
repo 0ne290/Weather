@@ -9,7 +9,7 @@ public class GismeteoService : IDisposable
     
     public async Task<GismeteoWeatherGeneralDto> GetGeneralWeatherAsync(double latitude, double longitude)
     {
-        var serializedJson = await _gismeteo.SendAsync($"latitude={latitude}&longitude={longitude}");
+        var serializedJson = await _gismeteo.SendGetAsync($"latitude={latitude}&longitude={longitude}");
 
         var z = new JsonSerializerSettings
         {
