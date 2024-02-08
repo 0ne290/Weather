@@ -1,15 +1,22 @@
+using Newtonsoft.Json;
 using Weather.Core.Application.Dtos;
 
 namespace Weather.Core.Application;
 
-public class WeatherService
+public class WeatherService : IDisposable
 {
     public WeatherService(Domain.Weather weather) => _weather = weather;
     
-    public WeatherGeneralDto GetGeneralWeather(double latitude, double longitude)
+    public async Task<WeatherGeneralDto> GetGeneralWeatherAsync(double latitude, double longitude)
     {
-        
-    }
+        var serializedJson = await _weather.GetWeatherAsync(latitude, longitude);
 
-    private Domain.Weather _weather;
+        var definition
+        
+        var deserializedJson = JsonConvert.DeserializeAnonymousType();
+    }
+    
+    public void Dispose() => _weather.Dispose();
+
+    private readonly Domain.Weather _weather;
 }
