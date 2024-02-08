@@ -11,6 +11,11 @@ public class WeatherService : IDisposable
     {
         var serializedJson = await _weather.GetWeatherAsync(latitude, longitude);
 
+        var z = new JsonSerializerSettings
+        {
+            DateFormatString = "yyyy'-'MM'-'dd' 'HH':'mm':'ss"
+        }
+        
         var definition
         
         var deserializedJson = JsonConvert.DeserializeAnonymousType();
