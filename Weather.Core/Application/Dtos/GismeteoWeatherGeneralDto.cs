@@ -2,7 +2,7 @@ using Newtonsoft.Json;
 
 namespace Weather.Core.Application.Dtos;
 
-public class WeatherGeneralDto
+public class GismeteoWeatherGeneralDto
 {
     [JsonProperty("kind")]
     public string Status { get; init; } = string.Empty;

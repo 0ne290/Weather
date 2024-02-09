@@ -1,8 +1,10 @@
-namespace Weather.Core.Domain;
+using Weather.Core.Domain.Interfaces;
 
-public class ExternalApi : IDisposable
+namespace Weather.Core.Domain.Implementations;
+
+public class ExternalApi : IExternalApi
 {
-    public Weather(HttpClient httpClient) => _httpClient = httpClient;
+    public ExternalApi(HttpClient httpClient) => _httpClient = httpClient;
 
     public async Task<string> SendGetAsync(string parameters)
     {
